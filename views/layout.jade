@@ -7,15 +7,16 @@ html
   #capcalera
     h1 ExploGEST
   form(method='post', action='/documents/')
-    label Usuari
+    label Usuari: 
     input nomUsuari
-    label Contrasenya
+    label Contrasenya: 
     input contraseya
-    input(type='submit') Entrar
+    input(type='submit' value='Entra')
   #menu
     ul
       li 
         a(href = '/') Inici
       li 
         a(href = 'vademecum') Vademecum
-  block content
+  #resultat
+    block content
