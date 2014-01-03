@@ -6,7 +6,7 @@ html
   body
   #capcalera
     h1 ExploGEST
-  form(method='post', action='/documents/')
+  form(method='post', action='/validar/')
     label Usuari: 
     input nomUsuari
     label Contrasenya: 
@@ -17,6 +17,6 @@ html
       li 
         a(href = '/') Inici
       li 
-        a(href = 'vademecum') Vademecum
+        a(href = '/vademecum') Vademecum
   #resultat
     block content

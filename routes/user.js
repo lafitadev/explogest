@@ -3,6 +3,12 @@
  * GET users listing.
  */
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+exports.validar = function(req, res){
+	console.log('Usuari Validat');
+	res.render('missatge', { missatge: 'Usuari validat amb exit' });
+};
+
+exports.registrar = function(req, res){
+	console.log('Registra Usuari');
+	res.render('missatge', { missatge: 'Usuari registrat amb exit' });
 };
