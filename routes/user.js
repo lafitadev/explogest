@@ -5,7 +5,7 @@
 
 exports.validar = function(req, res){
 	console.log('Usuari Validat');
-	res.render('missatge', { missatge: 'Usuari validat amb exit' });
+	res.render('missatge', { validat: 'true', missatge: 'Usuari validat amb exit' });
 };
 
 exports.registrar = function(req, res){

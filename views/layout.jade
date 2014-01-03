@@ -5,18 +5,30 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
   #capcalera
-    h1 ExploGEST
-  form(method='post', action='/validar/')
-    label Usuari: 
-    input nomUsuari
-    label Contrasenya: 
-    input contraseya
-    input(type='submit' value='Entra')
+    h1 exploGEST
+  if validat  
+      h3 Hola, Nom Usuari 
+  else
+    form(method='post', action='/validar/')
+      label Usuari: 
+      input nomUsuari
+      label Contrasenya: 
+      input contraseya
+      input(type='submit' value='Entra')
   #menu
     ul
       li 
         a(href = '/') Inici
       li 
         a(href = '/vademecum') Vademecum
+      if validat
+        li
+          a(href = '/collita') Collites
+        li
+          a(href = '/sulfats') Sulfats
+        li
+          a(href = '/abonament') Abonaments
+        li 
+          a(href = '/panelAdministracio') Panel Administració
   #resultat
     block content
