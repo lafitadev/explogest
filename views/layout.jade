@@ -6,8 +6,10 @@ html
   body
   #capcalera
     h1 exploGEST
-  if validat  
-      h3 Hola, Nom Usuari 
+  if session.validat
+      form(method='post', action='/desconectar/')
+        h3 Hola, Nom Usuari 
+        input(type='submit' value='Desconectar')
   else
     form(method='post', action='/validar/')
       label Usuari: 
@@ -21,7 +23,7 @@ html
         a(href = '/') Inici
       li 
         a(href = '/vademecum') Vademecum
-      if validat
+      if session.validat 
         li
           a(href = '/collita') Collites
         li

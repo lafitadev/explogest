@@ -1,13 +1,17 @@
 extends layout
 
 block content
-  h2 Registrat
-  p Encara no tens usuari per utilitzar l'aplicaicó, doncs registrat gratuitament i començar gaudir dels avantatges de tenir una gestió en linea de la teva explotació
-  form(method='post', action='/registrar/')
-    label Usuari: 
-    input nomUsuari
-    label Contrasenya: 
-    input contraseya
-    label Correu electronic: 
-    input correuElectronic
-    input(type='submit' value='Registrat')
+  if session.validat 
+    h2 Noticies
+    p Aquí aniran totes les noticies i parts importants
+  else
+    h2 Registrat
+    p Encara no tens usuari per utilitzar l'aplicaicó, doncs registrat gratuitament i començar gaudir dels avantatges de tenir una gestió en linea de la teva explotació
+    form(method='post', action='/registrar/')
+      label Usuari: 
+      input nomUsuari
+      label Contrasenya: 
+      input contraseya
+      label Correu electronic: 
+      input correuElectronic
+      input(type='submit' value='Registrat')

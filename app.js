@@ -9,6 +9,7 @@ var vademecum = require('./routes/vademecum');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var store = new express.session.MemoryStore;
 
 var app = express();
 
@@ -21,9 +22,16 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'whatever', store: store }));
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
+
 
 // development only
 if ('development' == app.get('env')) {
@@ -34,6 +42,7 @@ app.get('/', routes.index);
 app.get('/vademecum', vademecum.vademecum);
 app.post('/registrar', user.registrar);
 app.post('/validar', user.validar);
+app.post('/desconectar', user.desconectar);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
