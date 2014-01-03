@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2 Collita
+  include selectorParcelesCampanyes
+  h2 Introduir
+  form(method='post', action='/collita/')
+    label Dia: 
+    input dia
+    label Kilograms:
+    input kilograms
+    input(type='submit' value='Afegir')
+  #llistaCollita
+    h2 Llista
+    button Mostra Llista

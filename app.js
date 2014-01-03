@@ -6,6 +6,10 @@
 var express = require('express');
 var routes = require('./routes');
 var vademecum = require('./routes/vademecum');
+var abonament = require('./routes/abonament');
+var admin = require('./routes/admin');
+var collita = require('./routes/collita');
+var sulfat = require('./routes/sulfat');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
@@ -40,9 +44,17 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/vademecum', vademecum.vademecum);
+app.get('/abonament', abonament.abonament);
+app.get('/admin', admin.admin);
+app.get('/collita', collita.collita);
+app.get('/sulfat', sulfat.sulfat);
 app.post('/registrar', user.registrar);
 app.post('/validar', user.validar);
 app.post('/desconectar', user.desconectar);
+app.post('/collita', collita.collita);
+app.post('/abonament', abonament.abonament);
+app.post('/sulfat', sulfat.sulfat);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

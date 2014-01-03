@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h2 Sulfat
+  include selectorParcelesCampanyes
+  h2 Introduir
+  form(method='post', action='/abonament/')
+    label Dia: 
+    input dia
+    label Quantitat:
+    input quantitat
+    label Unitats
+    select
+      option Kg
+      option L
+      option Ml
+      option g
+    input(type='submit' value='Afegir')
+  #llistaSulfat
+    h2 Llista

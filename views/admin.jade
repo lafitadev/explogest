@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h2 Administració
+  #dadesUsuari
+    h3 Dades de l'usuari
+    form(method='post', action='/admin/')
+    label Nom: 
+    input nomUsuari
+    label Cognoms:
+    input cognomsUsuari
+    label E-mail:
+    input emailUsuari
+    input(type='submit' value='Actualitzar')
+  #dadesCampanyes
+    h3 Campanyes
+    form(method='post', action='/admin/')
+    label Nom: 
+    input nomCampanya
+    label Descripció:
+    input descripcióCampanya
+    label Data inici:
+    input dataIniciCampanya
+    label Data fi:
+    input dataFiCampanya
+    input(type='submit' value='Afegir')
+  #dadesParceles
+    h3 Parceles
+    form(method='post', action='/admin/')
+    label Nom: 
+    input nomParcela
+    label Superficie (ha):
+    input superficieParcela
+    label Població:
+    input poblacióParcela
+    input(type='submit' value='Afegir')
