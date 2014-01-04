@@ -8,14 +8,14 @@ html
     h1 exploGEST
   if session.validat
       form(method='post', action='/desconectar/')
-        h3 Hola, Nom Usuari 
+        h3 Hola, #{session.usuari.nomUsuari}
         input(type='submit' value='Desconectar')
   else
     form(method='post', action='/validar/')
       label Usuari: 
-      input nomUsuari
+      input(type='text', name='nomUsuari') nomUsuari
       label Contrasenya: 
-      input contraseya
+      input(type='password', name='contrasenya') contraseya
       input(type='submit' value='Entra')
   #menu
     ul

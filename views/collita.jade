@@ -3,13 +3,13 @@ extends layout
 block content
   h2 Collita
   include selectorParcelesCampanyes
-  h2 Introduir
+  h3 Introduir
   form(method='post', action='/collita/')
     label Dia: 
-    input dia
+    input(type='date') dia
     label Kilograms:
     input kilograms
     input(type='submit' value='Afegir')
   #llistaCollita
-    h2 Llista
+    h3 Llista
     button Mostra Llista

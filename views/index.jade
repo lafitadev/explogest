@@ -7,11 +7,11 @@ block content
   else
     h2 Registrat
     p Encara no tens usuari per utilitzar l'aplicaicó, doncs registrat gratuitament i començar gaudir dels avantatges de tenir una gestió en linea de la teva explotació
-    form(method='post', action='/registrar/')
+    form(method='post', action='/registrar')
       label Usuari: 
-      input nomUsuari
+      input(type='text', name='nomUsuari') nomUsuari
       label Contrasenya: 
-      input contraseya
+      input(type='password', name='contrasenya') contraseya
       label Correu electronic: 
-      input correuElectronic
-      input(type='submit' value='Registrat')
+      input(type='email', name='correuElectronic') correuElectronic
+      input(type='submit', value='Registrat')

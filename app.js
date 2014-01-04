@@ -4,6 +4,9 @@
  */
 
 var express = require('express');
+MongoClient = require('mongodb').MongoClient;
+dbObject = null;
+var format = require('util').format;
 var routes = require('./routes');
 var vademecum = require('./routes/vademecum');
 var abonament = require('./routes/abonament');
@@ -26,6 +29,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({ secret: 'whatever', store: store }));
 app.use(function(req,res,next){
@@ -54,7 +58,14 @@ app.post('/desconectar', user.desconectar);
 app.post('/collita', collita.collita);
 app.post('/abonament', abonament.abonament);
 app.post('/sulfat', sulfat.sulfat);
+app.post('/admin/usuari', admin.usuari);
+app.post('/admin/parcela', admin.parcela);
+app.post('/admin/campanya', admin.campanya);
 
+MongoClient.connect('mongodb://127.0.0.1:27017/explogest', function(err, db) {
+if (err) throw err;
+  dbObject = db;
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -3,10 +3,12 @@ extends layout
 block content
   h2 Sulfat
   include selectorParcelesCampanyes
-  h2 Introduir
+  h3 Introduir
   form(method='post', action='/abonament/')
     label Dia: 
-    input dia
+    input(type='date') dia
+    label Producte: 
+    input producte
     label Quantitat:
     input quantitat
     label Unitats
@@ -17,4 +19,4 @@ block content
       option g
     input(type='submit' value='Afegir')
   #llistaSulfat
-    h2 Llista
+    h3 Llista
