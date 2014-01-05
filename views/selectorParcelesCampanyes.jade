@@ -1,11 +1,13 @@
-label Parceles:
-  select
-    option
-    option UFO
-    option Nectagala
-    option Big Top
 label Campanya:
-  select
-    option 2014/2015
-    option 2013/2014
-    option 2012/2013
+select(id='selectCampanya')
+  if(campanyes)
+    each val, index in campanyes
+      if(index == selectCampanya )
+        option(selected = true, value = val.nomCampanya) #{val.nomCampanya}
+      else
+        option(value = val.nomCampanya) #{val.nomCampanya}
+label Parceles:
+  select(id='selectParcela')
+    if(campanyes && campanyes[selectCampanya].parceles)
+      each val, index in campanyes[selectCampanya].parceles
+        option= val.nomParcela

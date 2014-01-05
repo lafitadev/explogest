@@ -16,21 +16,34 @@ block content
     h3 Campanyes
     form(method='post', action='/admin/campanya')
       label Nom: 
-      input nomCampanya
+      input(type='text', name='nomCampanya') nomCampanya
       label Descripció:
-      input descripcióCampanya
+      input(type='text', name='descripcióCampanya') descripcióCampanya
       label Data inici:
-      input dataIniciCampanya
+      input(type='date', name='dataIniciCampanya') dataIniciCampanya
       label Data fi:
-      input dataFiCampanya
+      input(type='date', name='dataFiCampanya') dataFiCampanya
       input(type='submit' value='Afegir')
   #dadesParceles
     h3 Parceles
     form(method='post', action='/admin/parcela')
+      label Campanya: 
+      if(campanyes)
+        select(name='nomCampanya')
+          each val, index in campanyes
+            option= val.nomCampanya
       label Nom: 
-      input nomParcela
+      input(type='text', name='nomParcela')  nomParcela
       label Superficie (ha):
-      input superficieParcela
+      input(type='number', name='superficieParcela') superficieParcela
       label Població:
-      input poblacióParcela
+      input(type='text', name='poblacioParcela') poblacioParcela
       input(type='submit' value='Afegir')
+      if(campanyes)
+        ul
+          each val, index in campanyes
+            li= index + ': ' + val.nomCampanya
+            if(val && val.parceles)
+              ul
+                each subVal, index in val.parceles
+                  li= index + ': ' + subVal.nomParcela
