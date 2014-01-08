@@ -29,6 +29,7 @@ exports.campanya = function(req, res){
 			 res.render('admin', { title: 'Administració', campanyes: usuari.campanyes });
 	    });
 	});
+
 	  
   }else{
     res.render('index', { title: 'exploGEST' });
@@ -40,7 +41,7 @@ exports.parcela = function(req, res){
 	
    dbObject.collection('usuaris').update({nomUsuari: req.session.usuari.nomUsuari, contrasenya:req.session.usuari.contrasenya, 'campanyes.nomCampanya': req.body.nomCampanya},{$addToSet: {'campanyes.$.parceles': req.body}}, function (err, inserted) {
 	   dbObject.collection('usuaris').findOne({nomUsuari: req.session.usuari.nomUsuari, contrasenya:req.session.usuari.contrasenya},{campanyes: 1},function(err, usuari) {
-		   res.render('admin', { title: 'Administració', campanyes: usuari.campanyes });
+		   res.send(200)
 		});
 	});
   

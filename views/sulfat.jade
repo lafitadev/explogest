@@ -4,19 +4,26 @@ block content
   h2 Sulfat
   include selectorParcelesCampanyes
   h3 Introduir
-  form(method='post', action='/abonament/')
+  form(method='post', action='/sulfat/afegir')
+    input(type='hidden' name='nomCampanya' id='hiddenCampanya')
+    input(type='hidden' name='nomParcela' id='hiddenParcela')
+    input(type='hidden' name='nomUsuari' id='hiddenParcela' value=session.usuari.nomUsuari)
     label Dia: 
-    input(type='date') dia
+    input(type='date' name='diaSulfat') dia
     label Producte: 
-    input producte
+    input(type='text' name='producteSulfat') producte
     label Quantitat:
-    input quantitat
+    input(type='number' name='quantitatSulfat') quantitat
     label Unitats
-    select
+    select(name='unitatsSulfat')
       option Kg
       option L
       option Ml
       option g
     input(type='submit' value='Afegir')
   #llistaSulfat
-    h3 Llista
+    form(method='post', action='/sulfat/llista')
+      input(type='hidden' name='nomCampanya' id='hiddenCampanya')
+      input(type='hidden' name='nomParcela' id='hiddenParcela')
+      input(type='hidden' name='nomUsuari' id='hiddenParcela' value=session.usuari.nomUsuari)
+      input(type='submit' value='Llistat')

@@ -13,6 +13,8 @@ var abonament = require('./routes/abonament');
 var admin = require('./routes/admin');
 var collita = require('./routes/collita');
 var sulfat = require('./routes/sulfat');
+var treballador = require('./routes/treballador');
+var comptador = require('./routes/comptador');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
@@ -51,6 +53,9 @@ app.get('/vademecum', vademecum.vademecum);
 app.get('/abonament', abonament.abonament);
 app.get('/admin', admin.admin);
 app.get('/collita', collita.collita);
+app.get('/treballador', treballador.treballador);
+app.get('/comptador', comptador.comptador);
+app.get('/collita', collita.collita);
 app.get('/sulfat', sulfat.sulfat);
 app.post('/registrar', user.registrar);
 app.post('/validar', user.validar);
@@ -61,6 +66,13 @@ app.post('/sulfat', sulfat.sulfat);
 app.post('/admin/usuari', admin.usuari);
 app.post('/admin/parcela', admin.parcela);
 app.post('/admin/campanya', admin.campanya);
+app.post('/collita/afegir', collita.afegir);
+app.post('/collita/llista', collita.llista);
+app.post('/collita/rendiment', collita.rendiment);
+app.post('/sulfat/afegir', sulfat.afegir);
+app.post('/sulfat/llista', sulfat.llista);
+//app.post('/abonament/afegir', abonament.afegir);
+
 
 MongoClient.connect('mongodb://127.0.0.1:27017/explogest', function(err, db) {
 if (err) throw err;

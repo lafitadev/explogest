@@ -15,6 +15,7 @@ block content
   #dadesCampanyes
     h3 Campanyes
     form(method='post', action='/admin/campanya')
+      input(type='hidden', name='nomUsuari', value= session.usuari.nomUsuari)
       label Nom: 
       input(type='text', name='nomCampanya') nomCampanya
       label Descripció:
@@ -26,24 +27,38 @@ block content
       input(type='submit' value='Afegir')
   #dadesParceles
     h3 Parceles
-    form(method='post', action='/admin/parcela')
+    form(id='formParcela')
       label Campanya: 
-      if(campanyes)
         select(name='nomCampanya')
-          each val, index in campanyes
-            option= val.nomCampanya
+          if(campanyes)
+            each val, index in campanyes
+              option= val.nomCampanya
       label Nom: 
       input(type='text', name='nomParcela')  nomParcela
       label Superficie (ha):
       input(type='number', name='superficieParcela') superficieParcela
       label Població:
       input(type='text', name='poblacioParcela') poblacioParcela
+    button(id='afegirParcela') Afegir
+    if(campanyes)
+      ul
+        each val, index in campanyes
+          li= index + ': ' + val.nomCampanya
+          if(val && val.parceles)
+            ul
+              each subVal, index in val.parceles
+                li= index + ': ' + subVal.nomParcela
+  #dadesTreballadors
+    h3 Treballadors
+    form(method='post', action='/admin/treballador')
+      label Nom:
+      input(type='text', name='nomTreballador')
       input(type='submit' value='Afegir')
-      if(campanyes)
-        ul
-          each val, index in campanyes
-            li= index + ': ' + val.nomCampanya
-            if(val && val.parceles)
-              ul
-                each subVal, index in val.parceles
-                  li= index + ': ' + subVal.nomParcela
+  #dadesComptadors
+    h3 Comptadors
+    form(method='post', action='/admin/comptador')
+      label Identificador:
+      input(type='text', name='identificadorComptador')
+      label Localitzacio
+      input(type='text', name='localitzacioComptador')
+      input(type='submit' value='Afegir')

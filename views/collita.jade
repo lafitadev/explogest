@@ -4,12 +4,18 @@ block content
   h2 Collita
   include selectorParcelesCampanyes
   h3 Introduir
-  form(method='post', action='/collita/')
+  form(method='post', action='/collita/afegir')
+    input(type='hidden' name='nomCampanya' id='hiddenCampanya')
+    input(type='hidden' name='nomParcela' id='hiddenParcela')
+    input(type='hidden' name='nomUsuari' id='hiddenParcela' value=session.usuari.nomUsuari)
     label Dia: 
-    input(type='date') dia
+    input(type='date' name='dia') dia
     label Kilograms:
-    input kilograms
+    input(type='number' name='kilograms') kilograms
     input(type='submit' value='Afegir')
   #llistaCollita
-    h3 Llista
-    button Mostra Llista
+    form(method='post', action='/collita/llista')
+      input(type='hidden' name='nomCampanya' id='hiddenCampanya')
+      input(type='hidden' name='nomParcela' id='hiddenParcela')
+      input(type='hidden' name='nomUsuari' id='hiddenParcela' value=session.usuari.nomUsuari)
+      input(type='submit' value='Llistat')
