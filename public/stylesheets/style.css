@@ -1,7 +1,15 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
+body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif !important}
+.float-left{float:left;display:inline}
+.float-right{float:right;display:inline}
+.capaRegistre{min-width:350px;width:50%}
+.margin03em{margin:10px !important}
+.resultat{margin:20px}
+label{margin:0 5px 0 5px}
+input{margin:0 5px 0 5px}
+h2{margin:5px 0 5px 0}
+h3{margin:5px 0 5px 0}
+.menuList ul li{float:left;list-style-type:none;text-decoration:none;padding-right:15px;font-weight:bold}
+.menuList ul li a{text-decoration:none}
+.menuList ul{padding-left:20px !important}
+.overflowhidden{overflow:hidden}
+.capcalera{border-bottom:2px;border-bottom:solid;margin-bottom:10px}

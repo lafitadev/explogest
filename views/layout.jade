@@ -3,22 +3,27 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/yaml/yaml/core/base.css')
+    link(rel='stylesheet', href='/stylesheets/yaml/yaml/core/iehacks.css')
+    link(rel='stylesheet', href='/stylesheets/yaml/yaml/forms/gray-theme.css')
+    link(rel='stylesheet', href='/stylesheets/yaml/yaml/navigation/hlist.css')
+    link(rel='stylesheet', href='/stylesheets/yaml/yaml/navigation/vlist.css')
     script(src='/scripts/jquery-1.10.2.min.js')
   body
-  #capcalera
-    h1 exploGEST
-  if session.validat
-      form(method='post', action='/desconectar/')
-        h3 Hola, #{session.usuari.nomUsuari}
-        input(type='submit' value='Desconectar')
-  else
-    form(method='post', action='/validar/')
-      label Usuari: 
-      input(type='text', name='nomUsuari') nomUsuari
-      label Contrasenya: 
-      input(type='password', name='contrasenya') contraseya
-      input(type='submit' value='Entra')
-  #menu
+  #capcalera(class='overflowhidden capcalera')
+    h1(class='float-left margin03em') exploGEST
+    if session.validat
+      form(method='post', action='/desconectar/' class='float-right')
+        h3(class='float-left margin03em') Hola, #{session.usuari.nomUsuari}
+        input(type='submit' value='Desconectar' class='ym-button ym-small float-right margin03em')
+    else
+      form(method='post', action='/validar/'  class='float-right margin03em')
+        label Usuari: 
+        input(type='text', name='nomUsuari') nomUsuari
+        label Contrasenya: 
+        input(type='password', name='contrasenya') contraseya
+        input(type='submit' value='Entra' class='ym-button ym-small')
+  #menu(class = 'menuList overflowhidden')
     ul
       li 
         a(href = '/') Inici
@@ -37,6 +42,6 @@ html
           a(href = '/treballador') Treballadors
         li 
           a(href = '/admin') Panel Administració
-  #resultat
+  #resultat(class='resultat')
     block content
 script(src='/scripts/funcionsVistes.js')

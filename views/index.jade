@@ -5,13 +5,17 @@ block content
     h2 Noticies
     p Aquí aniran totes les noticies i parts importants
   else
-    h2 Registrat
-    p Encara no tens usuari per utilitzar l'aplicaicó, doncs registrat gratuitament i començar gaudir dels avantatges de tenir una gestió en linea de la teva explotació
-    form(method='post', action='/registrar')
-      label Usuari: 
-      input(type='text', name='nomUsuari') nomUsuari
-      label Contrasenya: 
-      input(type='password', name='contrasenya') contraseya
-      label Correu electronic: 
-      input(type='email', name='correuElectronic') correuElectronic
-      input(type='submit', value='Registrat')
+    #capaRegistre(class='capaRegistre')
+      h2 Registrat
+      p Encara no tens usuari per utilitzar l'aplicaicó, doncs registrat gratuitament i començar gaudir dels avantatges de tenir una gestió en linea de la teva explotació
+      form(method='post', action='/registrar' class='ym-form ym-full')
+        #divusuari(class='ym-fbox')
+          label Usuari: 
+          input(type='text', name='nomUsuari') nomUsuari
+        #divcontrasenya(class='ym-fbox')
+          label Contrasenya: 
+          input(type='password', name='contrasenya') contraseya
+        #divcorreuelectronic(class='ym-fbox')
+          label Correu electronic: 
+          input(type='email', name='correuElectronic') correuElectronic
+        input(type='submit', value='Registrat' class='ym-button ym-primary')

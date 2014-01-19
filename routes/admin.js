@@ -41,7 +41,7 @@ exports.parcela = function(req, res){
 	
    dbObject.collection('usuaris').update({nomUsuari: req.session.usuari.nomUsuari, contrasenya:req.session.usuari.contrasenya, 'campanyes.nomCampanya': req.body.nomCampanya},{$addToSet: {'campanyes.$.parceles': req.body}}, function (err, inserted) {
 	   dbObject.collection('usuaris').findOne({nomUsuari: req.session.usuari.nomUsuari, contrasenya:req.session.usuari.contrasenya},{campanyes: 1},function(err, usuari) {
-		   res.send(200)
+		   res.send(200);
 		});
 	});
   
